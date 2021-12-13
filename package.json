@@ -1,6 +1,6 @@
 {
   "name": "photon-sphere",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "SVG tools for generate geometric shapes based on circular arcs",
   "main": "src/index.js",
   "scripts": {
