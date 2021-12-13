@@ -1,0 +1,22 @@
+{
+  "name": "photon-sphere",
+  "version": "0.1.0",
+  "description": "SVG tools for generate geometric shapes based on circular arcs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarrieMitsu/photon-sphere.git"
+  },
+  "keywords": [
+    "SVG"
+  ],
+  "author": "MarrieMitsu <isnainromadoni@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MarrieMitsu/photon-sphere/issues"
+  },
+  "homepage": "https://github.com/MarrieMitsu/photon-sphere#readme"
+}
