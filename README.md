@@ -1,3 +1,3 @@
 # Photon Sphere
 
-SVG tools for generate geometric shapes based on circular arcs
+SVG tools for generate geometric shapes path based on circular arcs

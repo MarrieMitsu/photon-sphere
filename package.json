@@ -1,9 +1,16 @@
 {
   "name": "photon-sphere",
   "version": "0.2.0",
-  "description": "SVG tools for generate geometric shapes based on circular arcs",
-  "main": "src/index.js",
+  "description": "SVG tools for generate geometric shapes path based on circular arcs",
+  "main": "./dist/photon-sphere.js",
+  "module": "./dist/photon-sphere.es.js",
+  "browser": "./dist/photon-sphere.min.js",
+  "api": "PhotonSphere",
+  "files": [
+    "dist"
+  ],
   "scripts": {
+    "build": "node build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,5 +29,10 @@
   "bugs": {
     "url": "https://github.com/MarrieMitsu/photon-sphere/issues"
   },
-  "homepage": "https://github.com/MarrieMitsu/photon-sphere#readme"
+  "homepage": "https://github.com/MarrieMitsu/photon-sphere#readme",
+  "devDependencies": {
+    "@rollup/plugin-buble": "^0.21.3",
+    "rollup": "^2.61.1",
+    "rollup-plugin-terser": "^7.0.2"
+  }
 }

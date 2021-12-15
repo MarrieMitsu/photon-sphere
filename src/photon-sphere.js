@@ -9,7 +9,7 @@ import {
     drawCometBevelledTailPath,
     drawCometPath,
     drawMeteorPath,
-} from "./arc-shapes";
+} from "./arc-shapes/index";
 
 /**
  * PhotonSphere.
