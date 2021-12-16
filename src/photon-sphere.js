@@ -21,7 +21,8 @@ import {
  * arcDasharray: number[], 
  * align: string, 
  * fills: string[], 
- * morphingShape: boolean}} options
+ * morphingShape: boolean, 
+ * attributes: Object}} options
  * @returns {Object[]} Array of Object
  */
 export function PhotonSphere({
@@ -30,8 +31,8 @@ export function PhotonSphere({
     shapes = 'uniform',
     arcDasharray = [],
     align = 'face-out',
-    fills = 'black',
     morphingShape = false,
+    attributes = {}
 }) {
     const arcs = [];
     let threshold = 0;
@@ -55,19 +56,13 @@ export function PhotonSphere({
         shape = shapes;
     }
 
-    let fill;
-    if (Array.isArray(fills) && fills.length > 0) {
-        fill = fills[0];
-    } else {
-        fill = fills;
-    }
-
     if (Array.isArray(arcDasharray) && arcDasharray.length > 0) {
         // prevent infinite loop causing by zero as initial value
         if (fixedDegree(arcDasharray[0]) === 0) return arcs;
 
         while (threshold < ANGLE) {
             const isOdd = (i + 1) % 2 !== 0;
+            const attrs = {};
 
             let degree = fixedDegree(arcDasharray[i % arcDasharray.length]);
             if (degree > (ANGLE - threshold)) {
@@ -80,10 +75,6 @@ export function PhotonSphere({
 
             if (Array.isArray(shapes) && shapes.length > 0) {
                 shape = shapes[j % shapes.length];
-            }
-
-            if (Array.isArray(fills) && fills.length > 0) {
-                fill = fills[j % fills.length];
             }
 
             if (isOdd) {
@@ -129,7 +120,21 @@ export function PhotonSphere({
                         break;
                 }
 
-                arcs.push({ path, fill });
+                attrs.path = path;
+                
+                if (typeof attributes === 'object') {
+                    for (const key in attributes) {
+                        const attr = attributes[key];
+
+                        if (Array.isArray(attr) && attr.length > 0) {
+                            attrs[key] = attr[j % attr.length];
+                        } else {
+                            attrs[key] = attr;
+                        }
+                    }
+                }
+
+                arcs.push(attrs);
                 j++;
             }
 
@@ -138,6 +143,8 @@ export function PhotonSphere({
         }
     } else {
         let path;
+        const attrs = {};
+
         switch (shape) {
             case ARCSHAPE.UNIFORM:
                 path = drawUniformPath(radius, width, 0, morphingShape, 0, ALT_ANGLE);
@@ -176,7 +183,22 @@ export function PhotonSphere({
                 path = drawUniformPath(radius, width, 0, morphingShape, 0, ALT_ANGLE);
                 break;
         }
-        arcs.push({ path, fill });
+
+        attrs.path = path;
+
+        if (typeof attributes === 'object') {
+            for (const key in attributes) {
+                const attr = attributes[key];
+                
+                if (Array.isArray(attr) && attr.length > 0) {
+                    attrs[key] = attr[0];
+                } else {
+                    attrs[key] = attr;
+                }
+            }
+        }
+
+        arcs.push(attrs);
     }
 
     return arcs;
