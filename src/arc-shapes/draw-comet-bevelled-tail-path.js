@@ -3,8 +3,18 @@ import { getSpiralArcLocus } from "../utils/formulas";
 import { PathCommand } from "../utils/path-command";
 
 /**
- * drawCometBevelledTailPath.
- *
+ * Draw top-bevelled-iontail, top-bevelled-antitail,
+ * bottom-bevelled-iontail and bottom-bevelled-antitail
+ * shape.
+ * 
+ * @param {number} radius 
+ * @param {number} width 
+ * @param {number} margin 
+ * @param {boolean} morphingShape 
+ * @param {string} shape 
+ * @param {number} startingDegree 
+ * @param {number} endDegree 
+ * @returns {string} SVG path
  */
 export default function drawCometBevelledTailPath(radius, width, margin, morphingShape, shape, startingDegree, endDegree) {
     const gap = radiansToDegree(width / radius);

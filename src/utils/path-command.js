@@ -1,3 +1,9 @@
+/**
+ * SVG path command that define a path to be
+ * drawn.
+ * 
+ * @see {@link https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d#path_commands}
+ */
 export const PathCommand = {
     moveTo: {
         M: function (x, y) {

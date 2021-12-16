@@ -3,8 +3,15 @@ import { getCircularArcLocus } from "../utils/formulas";
 import { PathCommand } from "../utils/path-command";
 
 /**
- * drawUniformPath.
- *
+ * Draw uniform shape.
+ * 
+ * @param {number} radius 
+ * @param {number} width 
+ * @param {number} margin 
+ * @param {boolean} morphingShape 
+ * @param {number} startingDegree 
+ * @param {number} endDegree 
+ * @returns {string} SVG path
  */
 export default function drawUniformPath(radius, width, margin, morphingShape, startingDegree, endDegree) {
     const largeArcFlag = getLargeArcFlag(endDegree - startingDegree, morphingShape);

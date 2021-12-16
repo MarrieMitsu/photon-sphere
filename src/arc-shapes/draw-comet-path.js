@@ -3,8 +3,16 @@ import { getCircularArcLocus, getSpiralArcLocus } from "../utils/formulas";
 import { PathCommand } from "../utils/path-command";
 
 /**
- * drawCometPath.
- *
+ * Draw comet and reverse-comet shape.
+ * 
+ * @param {number} radius 
+ * @param {number} width 
+ * @param {number} margin 
+ * @param {boolean} morphingShape 
+ * @param {string} shape 
+ * @param {number} startingDegree 
+ * @param {number} endDegree 
+ * @returns {string} SVG path
  */
 export default function drawCometPath(radius, width, margin, morphingShape, shape, startingDegree, endDegree) {
     const gap = radiansToDegree(width / radius);

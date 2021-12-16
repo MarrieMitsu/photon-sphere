@@ -12,8 +12,17 @@ import {
 } from "./arc-shapes/index";
 
 /**
- * PhotonSphere.
+ * PhotonSphere API.
  * 
+ * @param {{
+ * radius: number, 
+ * widths: number | number[], 
+ * shapes: string | string[],
+ * arcDasharray: number[], 
+ * align: string, 
+ * fills: string[], 
+ * morphingShape: boolean}} options
+ * @returns {Object[]} Array of Object
  */
 export function PhotonSphere({
     radius = 0,
@@ -54,6 +63,7 @@ export function PhotonSphere({
     }
 
     if (Array.isArray(arcDasharray) && arcDasharray.length > 0) {
+        // prevent infinite loop causing by zero as initial value
         if (fixedDegree(arcDasharray[0]) === 0) return arcs;
 
         while (threshold < ANGLE) {

@@ -3,8 +3,16 @@ import { getSpiralArcLocus } from "../utils/formulas";
 import { PathCommand } from "../utils/path-command";
 
 /**
- * drawCometTailPath.
- *
+ * Draw uniform-iontail and uniform-antitail shape.
+ * 
+ * @param {number} radius 
+ * @param {number} width 
+ * @param {number} margin 
+ * @param {boolean} morphingShape 
+ * @param {string} shape 
+ * @param {number} startingDegree 
+ * @param {number} endDegree 
+ * @returns {string} SVG path
  */
 export default function drawCometTailPath(radius, width, margin, morphingShape, shape, startingDegree, endDegree) {
     let arc1, arc2;

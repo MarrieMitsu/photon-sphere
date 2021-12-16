@@ -1,6 +1,13 @@
 import { ANGLE_DIVISION, BEHAVIOR } from "./constants";
 import { fixedDecimal, degreeToRadians } from "./utils";
 
+/**
+ * Get polar coordinates of given radius and degree.
+ * 
+ * @param {number} radius - circle radius.
+ * @param {number} degree - angular coordinate.
+ * @returns {Object} x and y coordinate.
+ */
 export function getPolarCoordinate(radius, degree) {
     const x = radius * Math.cos(degreeToRadians(degree));
     const y = radius * Math.sin(degreeToRadians(degree));
@@ -8,6 +15,21 @@ export function getPolarCoordinate(radius, degree) {
     return { x, y };
 }
 
+/**
+ * Get circular arc locus between two angular
+ * coordinate.
+ * 
+ * @param {number} layer - determine 1 of 3 layers to be 
+ * generated.
+ * @param {number} radius - circle radius.
+ * @param {number} width - distance between layer 1 and 3.
+ * @param {number} margin - position of each arc shape.
+ * @param {boolean} morphingShape - morphable shapes.
+ * @param {number} startingDegree - start point of angular circular.
+ * @param {number} endDegree - end point of angular circular.
+ * @returns {Object[]} array of locus that includes radius 
+ * and coordinates.
+ */
 export function getCircularArcLocus(layer, radius, width, margin, morphingShape, startingDegree, endDegree) {
     const fixedRadius = radius - margin;
     const locus = [];
@@ -76,6 +98,21 @@ export function getCircularArcLocus(layer, radius, width, margin, morphingShape,
     return locus;
 }
 
+/**
+ * Get spiral arc locus between two angular
+ * coordinate.
+ * 
+ * @param {number} layer - determine 1 of 3 layers to be 
+ * generated.
+ * @param {number} radius - circle radius.
+ * @param {number} width - distance between layer 1 and 3.
+ * @param {number} margin - position of each arc shape.
+ * @param {boolean} behavior - grow or shrink.
+ * @param {number} startingDegree - start point of angular circular.
+ * @param {number} endDegree - end point of angular circular.
+ * @returns {Object[]} array of locus that includes radius 
+ * and coordinates.
+ */
 export function getSpiralArcLocus(layer, radius, width, margin, behavior, startingDegree, endDegree) {
     const fixedRadius = radius - margin;
     let fixedStartingDegree;
