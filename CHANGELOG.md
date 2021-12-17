@@ -6,6 +6,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.3] - 2021-12-17
+### Changed
+- Escape character '|' to distinguish between markdown table '|'.
+
+## [1.0.2] - 2021-12-17
+### Changed
+- Revert v1.0.0, forgot to sign-in commit.
+
+## [1.0.1] - 2021-12-17
+- 
+
 ## [1.0.0] - 2021-12-17
 ### Changed
 - PhotonSphere stable API
