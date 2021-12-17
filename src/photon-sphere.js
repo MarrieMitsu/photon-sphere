@@ -20,7 +20,6 @@ import {
  * shapes: string | string[],
  * arcDasharray: number[], 
  * align: string, 
- * fills: string[], 
  * morphingShape: boolean, 
  * attributes: Object}} options
  * @returns {Object[]} Array of Object
