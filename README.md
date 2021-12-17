@@ -68,12 +68,12 @@ const paths = new PhotonSphere({
 | Property | Type | Description | Required | Default Value |
 |-|-|-|-|-|
 | radius | Number | Circle radius | Yes | - |
-| widths | Number\|Array<Number> | Shape width | Yes | - |
-| shapes | String\|Array<String> | Arc shapes that already listed previously | Yes | `uniform` |
-| arcDasharray | Array<Number> | It is like [stroke-dasharray](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-dasharray) attribute that defining the pattern of arc shape and gaps | No | - |
+| widths | Number\|Array\<Number> | Shape width | Yes | - |
+| shapes | String\|Array\<String> | Arc shapes that already listed previously | Yes | `uniform` |
+| arcDasharray | Array\<Number> | It is like [stroke-dasharray](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-dasharray) attribute that defining the pattern of arc shape and gaps | No | - |
 | align | String | When the shapes have different size of width, it will determines where the shapes will be placed. there is `face-out`, `center` and `face-in` | No | `face-out` |
 | morphingShape | Boolean | Used when you want animate one shape to another shape. Please read the Morphing Limitations section | No | false |
-| attributes | Object<any\|Array<any>> | Additional options that will be generated along with the path property | No | - |
+| attributes | Object\<any\|Array<any>> | Additional options that will be generated along with the path property | No | - |
 
 ## Best Practices
 
