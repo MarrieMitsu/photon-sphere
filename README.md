@@ -70,14 +70,14 @@ const paths = new PhotonSphere({
 | radius | Number | Circle radius | Yes | - |
 | widths | Number\|Array\<Number> | Shape width | Yes | - |
 | shapes | String\|Array\<String> | Arc shapes that already listed previously | Yes | `uniform` |
-| arcDasharray | Array\<Number> | It is like [stroke-dasharray](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-dasharray) attribute that defining the pattern of arc shape and gaps | No | - |
-| align | String | When the shapes have different size of width, it will determines where the shapes will be placed. there is `face-out`, `center` and `face-in` | No | `face-out` |
+| arcDasharray | Array\<Number> | It is like [stroke-dasharray](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-dasharray) attribute that defining the pattern of Arc shapes and gaps | No | - |
+| align | String | When shapes have different width sizes, it will determines where the shape will be placed. There is `face-out`, `center` and `face-in` | No | `face-out` |
 | morphingShape | Boolean | Used when you want animate one shape to another shape. Please read the Morphing Limitations section | No | false |
 | attributes | Object\<any\|Array\<any>> | Additional options that will be generated along with the path property | No | - |
 
 ## Best Practices
 
-Consider to using this library as a tool for generating paths to be used in static code, rather than directly on runtime process. If you insist, try to using it with `Web Worker` as performance advice, especially while doing mass processing.
+Consider to use this library as a tool for generating paths to be used in static code, rather than directly on runtime process. If you insist, try to using it with `Web Worker` as performance advice, especially while doing mass processing.
 
 ## Draw Pattern Visualization
 - 
