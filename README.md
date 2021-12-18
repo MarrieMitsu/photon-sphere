@@ -85,11 +85,11 @@ Consider to use this library as a tool for generating paths to be used in static
 
 ### Layers
 
-`L1`, `L2`, `L3` are layers of the Circular Arc, it was the Circle. The distance between `L1` and `L3` is the `widths` in the options API. `L2` used to be a `median`. These three layers are used as a reference to draw an Arc from two points or more using an [Elliptical Arc Curve](https://www.w3.org/TR/SVG/paths.html#PathDataEllipticalArcCommands) command. There are two kinds of Arc terms in this library, `Circular Arc` and  `Spiral Arc`.
+`L1`, `L2`, `L3` are layers of the Circular Arc, it was the Circle. The distance between `L1` and `L3` is the `widths` in the options API. `L2` used to be a `median`. These three layers are used as a reference to draw an Arc from two points or more using an [Elliptical Arc Curve](https://www.w3.org/TR/SVG/paths.html#PathDataEllipticalArcCommands) command. There are two kinds of Arc terms in this library, **Circular Arc** and  **Spiral Arc**.
 
-`Circular Arc` is an arc that created from sequence of points that only rely on one layer, e.g., `A to B` rely on `L1` layer which `uniform` shape uses.
+**Circular Arc** is an arc that created from sequence of points that only rely on one layer, e.g., `A to B` rely on `L1` layer which `uniform` shape uses.
 
-`Spiral Arc` is an arc that created from sequence of points that rely on two layers. In this case `L1 and L2` or `L3 and L2`. `Spiral Arc` has two behavior `GROW` and `SHRINK` which are used for how the arc is drawn, .e.g, `A to F` or `D to F` are using `SHRINK` behavior and `E to B` or `E to C` are using `GROW` behavior. The behavior is determined from where the starting point is. The `Comet` shape is a shape that uses `Spiral Arc` term.
+**Spiral Arc** is an arc that created from sequence of points that rely on two layers. In this case `L1 and L2` or `L3 and L2`. `Spiral Arc` has two behavior **GROW** and **SHRINK** which are used for how the arc is drawn, .e.g, `A to F` or `D to F` are using **SHRINK** behavior and `E to B` or `E to C` are using **GROW** behavior. The behavior is determined from where the starting point is. The `Comet` shape is a shape that uses `Spiral Arc` term.
 
 ### Points
 
