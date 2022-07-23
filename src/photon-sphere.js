@@ -26,15 +26,23 @@ import {
  * @returns {Object[]} Array of Object
  */
 export function PhotonSphere({
-    radius = 0,
-    widths = 0,
-    shapes = 'uniform',
+    radius,
+    widths,
+    shapes,
     offset = 0,
     arcDasharray = [],
     align = 'face-out',
     morphingShape = false,
     attributes = {}
 }) {
+    if (radius === undefined) {
+        throw new TypeError('[PhotonSphere]: radius must not null');
+    } else if (widths === undefined) {
+        throw new TypeError('[PhotonSphere]: widths must not null');
+    } else if (shapes === undefined) {
+        throw new TypeError('[PhotonSphere]: shapes must not null');
+    }
+
     const arcs = [];
     let threshold = 0;
     let i = 0;

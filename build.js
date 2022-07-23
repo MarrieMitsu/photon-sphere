@@ -58,6 +58,9 @@ async function build() {
             fs.writeFileSync(pkg.browser, `${banner}\n${buffer}`);
         });
 
+        // Copy declaration file
+        await fs.promises.copyFile('./types/photon-sphere.d.ts', './dist/photon-sphere.d.ts');
+
         console.info('[Compiling finish...]');
 
         await bundle.close();
