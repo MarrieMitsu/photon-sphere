@@ -18,6 +18,7 @@ import {
  * radius: number, 
  * widths: number | number[], 
  * shapes: string | string[],
+ * offset: number, 
  * arcDasharray: number[], 
  * align: string, 
  * morphingShape: boolean, 
@@ -28,6 +29,7 @@ export function PhotonSphere({
     radius = 0,
     widths = 0,
     shapes = 'uniform',
+    offset = 0,
     arcDasharray = [],
     align = 'face-out',
     morphingShape = false,
@@ -54,6 +56,9 @@ export function PhotonSphere({
     } else {
         shape = shapes;
     }
+
+    // offset
+    threshold += fixedDegree(offset);
 
     if (Array.isArray(arcDasharray) && arcDasharray.length > 0) {
         // prevent infinite loop causing by zero as initial value
