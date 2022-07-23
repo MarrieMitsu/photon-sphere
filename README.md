@@ -35,6 +35,7 @@ const paths = new PhotonSphere({
     morphingShape: true,
     radius: 300,
     widths: [20],
+    offset: 10,
     shapes: ['uniform'],
     arcDasharray: [90, 0],
     align: 'face-out',
@@ -69,7 +70,7 @@ const paths = new PhotonSphere({
 |-|-|-|-|-|
 | radius | Number | Circle radius | Yes | - |
 | widths | Number\|Array\<Number> | Shape width. Act like `arcDasharray` | Yes | - |
-| shapes | String\|Array\<String> | Arc shapes that already listed previously. Act like `arcDasharray` | Yes | `uniform` |
+| shapes | String\|Array\<String> | Arc shapes that already listed previously. Act like `arcDasharray` | Yes | - |
 | arcDasharray | Array\<Number> | It is like [stroke-dasharray](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-dasharray) attribute that defining the pattern of Arc shapes and gaps | No | - |
 | align | String | When shapes have different width sizes, it will determines where the shape will be placed. There is `face-out`, `center` and `face-in` | No | `face-out` |
 | morphingShape | Boolean | Used when you want animate one shape to another shape. Please read the Morphing Limitations section | No | false |
