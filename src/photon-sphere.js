@@ -18,6 +18,7 @@ import {
  * radius: number, 
  * widths: number | number[], 
  * shapes: string | string[],
+ * offset: number, 
  * arcDasharray: number[], 
  * align: string, 
  * morphingShape: boolean, 
@@ -25,14 +26,23 @@ import {
  * @returns {Object[]} Array of Object
  */
 export function PhotonSphere({
-    radius = 0,
-    widths = 0,
-    shapes = 'uniform',
+    radius,
+    widths,
+    shapes,
+    offset = 0,
     arcDasharray = [],
     align = 'face-out',
     morphingShape = false,
     attributes = {}
 }) {
+    if (radius === undefined) {
+        throw new TypeError('[PhotonSphere]: radius must not null');
+    } else if (widths === undefined) {
+        throw new TypeError('[PhotonSphere]: widths must not null');
+    } else if (shapes === undefined) {
+        throw new TypeError('[PhotonSphere]: shapes must not null');
+    }
+
     const arcs = [];
     let threshold = 0;
     let i = 0;
@@ -54,6 +64,9 @@ export function PhotonSphere({
     } else {
         shape = shapes;
     }
+
+    // offset
+    threshold += fixedDegree(offset);
 
     if (Array.isArray(arcDasharray) && arcDasharray.length > 0) {
         // prevent infinite loop causing by zero as initial value
