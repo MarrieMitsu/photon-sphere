@@ -1,6 +1,7 @@
-import { radiansToDegree, drawArcs } from "../utils/utils";
+import { ARCSHAPE } from "../utils/constants";
 import { getCircularArcLocus, getSpiralArcLocus } from "../utils/formulas";
 import { PathCommand } from "../utils/path-command";
+import { drawArcs, radiansToDegree } from "../utils/utils";
 
 /**
  * Draw meteor and reverse-meteor shape.

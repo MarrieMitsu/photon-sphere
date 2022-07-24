@@ -1,6 +1,7 @@
-import { drawArcs } from "../utils/utils";
+import { ARCSHAPE } from "../utils/constants";
 import { getSpiralArcLocus } from "../utils/formulas";
 import { PathCommand } from "../utils/path-command";
+import { drawArcs } from "../utils/utils";
 
 /**
  * Draw uniform-iontail and uniform-antitail shape.
