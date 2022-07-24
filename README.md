@@ -47,22 +47,73 @@ const paths = new PhotonSphere({
 
 ## Shapes list
 - `uniform`
+
+    ![uniform.svg](/docs/assets/shapes/uniform.svg)
+
 - `rounded`
+
+    ![rounded.svg](/docs/assets/shapes/rounded.svg)
+
 - `edge`
+
+    ![edge.svg](/docs/assets/shapes/edge.svg)
+
 - `reverse-edge`
+
+    ![reverse-edge.svg](/docs/assets/shapes/reverse-edge.svg)
+
 - `double-edge`
+
+    ![double-edge.svg](/docs/assets/shapes/double-edge.svg)
+
 - `reverse-double-edge`
+
+    ![reverse-double-edge.svg](/docs/assets/shapes/reverse-double-edge.svg)
+
 - `bevelled-edge`
+
+    ![bevelled-edge.svg](/docs/assets/shapes/bevelled-edge.svg)
+
 - `uniform-iontail`
+
+    ![uniform-iontail.svg](/docs/assets/shapes/uniform-iontail.svg)
+
 - `uniform-antitail`
+
+    ![uniform-antitail.svg](/docs/assets/shapes/uniform-antitail.svg)
+
 - `top-bevelled-iontail`
+
+    ![top-bevelled-iontail.svg](/docs/assets/shapes/top-bevelled-iontail.svg)
+
 - `top-bevelled-antitail`
+
+    ![top-bevelled-antitail.svg](/docs/assets/shapes/top-bevelled-antitail.svg)
+
 - `bottom-bevelled-iontail`
+
+    ![bottom-bevelled-iontail.svg](/docs/assets/shapes/bottom-bevelled-iontail.svg)
+
 - `bottom-bevelled-antitail`
+
+    ![bottom-bevelled-antitail.svg](/docs/assets/shapes/bottom-bevelled-antitail.svg)
+
 - `comet`
+
+    ![comet.svg](/docs/assets/shapes/comet.svg)
+
 - `reverse-comet`
+
+    ![reverse-comet.svg](/docs/assets/shapes/reverse-comet.svg)
+
 - `meteor`
+
+    ![meteor.svg](/docs/assets/shapes/meteor.svg)
+
 - `reverse-meteor`
+
+    ![reverse-meteor.svg](/docs/assets/shapes/reverse-meteor.svg)
+
 
 ## API Options
 
