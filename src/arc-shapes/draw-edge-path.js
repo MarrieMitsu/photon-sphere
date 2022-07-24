@@ -1,6 +1,7 @@
-import { radiansToDegree, getLargeArcFlag, drawArcs } from "../utils/utils";
+import { ARCSHAPE } from "../utils/constants";
 import { getCircularArcLocus } from "../utils/formulas";
 import { PathCommand } from "../utils/path-command";
+import { drawArcs, getLargeArcFlag, radiansToDegree } from "../utils/utils";
 
 /**
  * Draw edge, reverse-edge, double-edge and
