@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.0] - 2022-07-24
+### Changed
+- Change API return value
+- Refactor internal implementation
+- Fix declaration return type
+- Improve documentation and organize files
+
 ## [1.1.3] - 2022-07-24
 ### Changed
 - Fix `BEHAVIOR` undefined variable
