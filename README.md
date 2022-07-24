@@ -19,11 +19,22 @@ or manual download, you can found the zip file in the [releases](https://github.
 ```javascript
 import PhotonSphere from 'photon-sphere.es.js';
 
-const paths = new PhotonSphere({
+const paths = PhotonSphere({
     radius: 300,
     widths: 20,
     shapes: 'uniform',
 });
+```
+
+Output : 
+
+```javascript
+[
+  {
+    path: 'M 600,300 A 300,300 0 1 0 600,300.0001  L 580,300.0001 A 280,280 0 1 1 580,300  Z',
+    attributes: {}
+  }
+]
 ```
 
 ### Full Usage
@@ -31,7 +42,7 @@ const paths = new PhotonSphere({
 ```javascript
 import PhotonSphere from 'photon-sphere.es.js';
 
-const paths = new PhotonSphere({
+const paths = PhotonSphere({
     morphingShape: true,
     radius: 300,
     widths: [20],
@@ -45,36 +56,110 @@ const paths = new PhotonSphere({
 });
 ```
 
+Output : 
+
+```javascript
+[
+  {
+    path: 'M 595.4423,247.9055 A 300,300 0 0 0 247.9055,4.5577 A 300,300 0 0 0 247.9055,4.5577 A 300,300 0 0 0 247.9055,4.5577 A 300,300 0 0 0 247.9055,4.5577  C 247.9055,4.5577 249.642,14.4058 249.642,14.4058 C 249.642,14.4058 251.3785,24.2538 251.3785,24.2538 A 280,280 0 0 1 575.7462,251.3785 A 280,280 0 0 1 575.7462,251.3785 A 280,280 0 0 1 575.7462,251.3785 A 280,280 0 0 1 575.7462,251.3785  C 575.7462,251.3785 585.5942,249.642 585.5942,249.642 C 585.5942,249.642 595.4423,247.9055 595.4423,247.9055',
+    attributes: { fills: 'red' }
+  },
+  {
+    path: 'M 247.9055,4.5577 A 300,300 0 0 0 4.5577,352.0945 A 300,300 0 0 0 4.5577,352.0945 A 300,300 0 0 0 4.5577,352.0945 A 300,300 0 0 0 4.5577,352.0945  C 4.5577,352.0945 14.4058,350.358 14.4058,350.358 C 14.4058,350.358 24.2538,348.6215 24.2538,348.6215 A 280,280 0 0 1 251.3785,24.2538 A 280,280 0 0 1 251.3785,24.2538 A 280,280 0 0 1 251.3785,24.2538 A 280,280 0 0 1 251.3785,24.2538  C 251.3785,24.2538 249.642,14.4058 249.642,14.4058 C 249.642,14.4058 247.9055,4.5577 247.9055,4.5577',
+    attributes: { fills: 'blue' }
+  },
+  {
+    path: 'M 4.5577,352.0945 A 300,300 0 0 0 352.0945,595.4423 A 300,300 0 0 0 352.0945,595.4423 A 300,300 0 0 0 352.0945,595.4423 A 300,300 0 0 0 352.0945,595.4423  C 352.0945,595.4423 350.358,585.5942 350.358,585.5942 C 350.358,585.5942 348.6215,575.7462 348.6215,575.7462 A 280,280 0 0 1 24.2538,348.6215 A 280,280 0 0 1 24.2538,348.6215 A 280,280 0 0 1 24.2538,348.6215 A 280,280 0 0 1 24.2538,348.6215  C 24.2538,348.6215 14.4058,350.358 14.4058,350.358 C 14.4058,350.358 4.5577,352.0945 4.5577,352.0945',
+    attributes: { fills: 'red' }
+  },
+  {
+    path: 'M 352.0945,595.4423 A 300,300 0 0 0 600,300 A 300,300 0 0 0 600,300 A 300,300 0 0 0 600,300 A 300,300 0 0 0 600,300  C 600,300 590,300 590,300 C 590,300 580,300 580,300 A 280,280 0 0 1 348.6215,575.7462 A 280,280 0 0 1 348.6215,575.7462 A 280,280 0 0 1 348.6215,575.7462 A 280,280 0 0 1 348.6215,575.7462  C 348.6215,575.7462 350.358,585.5942 350.358,585.5942 C 350.358,585.5942 352.0945,595.4423 352.0945,595.4423',
+    attributes: { fills: 'blue' }
+  }
+]
+```
+
 ## Shapes list
 - `uniform`
+
+    ![uniform.svg](/docs/assets/shapes/uniform.svg)
+
 - `rounded`
+
+    ![rounded.svg](/docs/assets/shapes/rounded.svg)
+
 - `edge`
+
+    ![edge.svg](/docs/assets/shapes/edge.svg)
+
 - `reverse-edge`
+
+    ![reverse-edge.svg](/docs/assets/shapes/reverse-edge.svg)
+
 - `double-edge`
+
+    ![double-edge.svg](/docs/assets/shapes/double-edge.svg)
+
 - `reverse-double-edge`
+
+    ![reverse-double-edge.svg](/docs/assets/shapes/reverse-double-edge.svg)
+
 - `bevelled-edge`
+
+    ![bevelled-edge.svg](/docs/assets/shapes/bevelled-edge.svg)
+
 - `uniform-iontail`
+
+    ![uniform-iontail.svg](/docs/assets/shapes/uniform-iontail.svg)
+
 - `uniform-antitail`
+
+    ![uniform-antitail.svg](/docs/assets/shapes/uniform-antitail.svg)
+
 - `top-bevelled-iontail`
+
+    ![top-bevelled-iontail.svg](/docs/assets/shapes/top-bevelled-iontail.svg)
+
 - `top-bevelled-antitail`
+
+    ![top-bevelled-antitail.svg](/docs/assets/shapes/top-bevelled-antitail.svg)
+
 - `bottom-bevelled-iontail`
+
+    ![bottom-bevelled-iontail.svg](/docs/assets/shapes/bottom-bevelled-iontail.svg)
+
 - `bottom-bevelled-antitail`
+
+    ![bottom-bevelled-antitail.svg](/docs/assets/shapes/bottom-bevelled-antitail.svg)
+
 - `comet`
+
+    ![comet.svg](/docs/assets/shapes/comet.svg)
+
 - `reverse-comet`
+
+    ![reverse-comet.svg](/docs/assets/shapes/reverse-comet.svg)
+
 - `meteor`
+
+    ![meteor.svg](/docs/assets/shapes/meteor.svg)
+
 - `reverse-meteor`
+
+    ![reverse-meteor.svg](/docs/assets/shapes/reverse-meteor.svg)
+
 
 ## API Options
 
 | Property | Type | Description | Required | Default Value |
 |-|-|-|-|-|
 | radius | Number | Circle radius | Yes | - |
-| widths | Number\|Array\<Number> | Shape width. Act like `arcDasharray` | Yes | - |
+| widths | Number\|Array\<Number> | Shape width (pixel). Act like `arcDasharray` | Yes | - |
 | shapes | String\|Array\<String> | Arc shapes that already listed previously. Act like `arcDasharray` | Yes | - |
 | offset | Number | An Offset before the initial Arc | No | 0 |
-| arcDasharray | Array\<Number> | It is like [stroke-dasharray](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-dasharray) attribute that defining the pattern of Arc shapes and gaps | No | - |
+| arcDasharray | Array\<Number> | It is like [stroke-dasharray](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-dasharray) attribute that defining the pattern of Arc shapes and gaps using degree unit | No | - |
 | align | String | When shapes have different width sizes, it will determines where the shape will be placed. There is `face-out`, `center` and `face-in` | No | `face-out` |
-| morphingShape | Boolean | Used when you want animate one shape to another shape. Please read the Morphing Limitations section | No | false |
+| morphingShape | Boolean | Used when you want animate one shape to another shape. Please read the Limitations section | No | false |
 | attributes | Object\<any\|Array\<any>> | Additional options that will be generated along with the path property. Act like `arcDasharray` | No | - |
 
 ## Best Practices
@@ -101,9 +186,11 @@ Consider to use this library as a tool for generating paths to be used in static
 
 `A to a` or `b to B` like the name, it was used to give a gap to the edges. It is mainly used for drawing `bevelled` or `rounded` shapes.
 
-## Morphing Limitations
+## Limitations
 
-Try not to morph shapes that have different Arc angle sizes, as animating SVG code is such a complex task without using any graphical tools.
+- Try not to morph shapes that have different Arc angle sizes, as animating SVG code is such a complex task without using any graphical tools.
+- You can't create full circle shape without connecting outer stroke-line into inner stroke-line.
+- If the length of your `arcDasharray` in pixel less than the widths, the result will fall apart
 
 ## License
 

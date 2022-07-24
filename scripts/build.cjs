@@ -2,7 +2,7 @@ const fs = require('fs');
 const { rollup } = require('rollup');
 const buble = require('@rollup/plugin-buble');
 const { terser } = require('rollup-plugin-terser');
-const pkg = require('./package.json');
+const pkg = require('../package.json');
 
 const date = new Date();
 
