@@ -1,4 +1,4 @@
-import { ARCSHAPE } from "../utils/constants";
+import { ARCSHAPE, BEHAVIOR } from "../utils/constants";
 import { getSpiralArcLocus } from "../utils/formulas";
 import { PathCommand } from "../utils/path-command";
 import { drawArcs, radiansToDegree } from "../utils/utils";
