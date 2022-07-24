@@ -1,10 +1,10 @@
-// Type definitions for photon-sphere 1.1.0
+// Type definitions for photon-sphere 2.0.0
 // Project: photon-sphere
 // Definitions by: MarrieMitsu
 
 export as namespace PhotonSphere;
 
-declare function PhotonSphere(args: PhotonSphereProps): string[];
+declare function PhotonSphere(args: PhotonSphereProps): PhotonSphereResult[];
 
 export default PhotonSphere;
 
@@ -42,4 +42,9 @@ export declare interface PhotonSphereProps {
     align?: ArcPosition;
     morphingShape?: boolean;
     attributes?: Attrs;
+}
+
+export declare interface PhotonSphereResult {
+    path: string;
+    attributes: Record<string | number | symbol, unknown>
 }

@@ -35,6 +35,7 @@ export function PhotonSphere({
     morphingShape = false,
     attributes = {}
 }) {
+    // check if required args are exist
     if (radius === undefined) {
         throw new TypeError('[PhotonSphere]: radius must not null');
     } else if (widths === undefined) {
@@ -74,6 +75,7 @@ export function PhotonSphere({
 
         while (threshold < ANGLE) {
             const isOdd = (i + 1) % 2 !== 0;
+            const generatedObj = {};
             const attrs = {};
 
             let degree = fixedDegree(arcDasharray[i % arcDasharray.length]);
@@ -131,8 +133,6 @@ export function PhotonSphere({
                         path = drawUniformPath(radius, width, margin, morphingShape, threshold, threshold + degree);
                         break;
                 }
-
-                attrs.path = path;
                 
                 if (typeof attributes === 'object') {
                     for (const key in attributes) {
@@ -146,7 +146,10 @@ export function PhotonSphere({
                     }
                 }
 
-                arcs.push(attrs);
+                generatedObj.path = path;
+                generatedObj.attributes = attrs;
+
+                arcs.push(generatedObj);
                 j++;
             }
 
@@ -155,6 +158,7 @@ export function PhotonSphere({
         }
     } else {
         let path;
+        const generatedObj = {};
         const attrs = {};
 
         switch (shape) {
@@ -196,8 +200,6 @@ export function PhotonSphere({
                 break;
         }
 
-        attrs.path = path;
-
         if (typeof attributes === 'object') {
             for (const key in attributes) {
                 const attr = attributes[key];
@@ -209,8 +211,11 @@ export function PhotonSphere({
                 }
             }
         }
-
-        arcs.push(attrs);
+        
+        generatedObj.path = path;
+        generatedObj.attributes = attrs;
+        
+        arcs.push(generatedObj);
     }
 
     return arcs;
