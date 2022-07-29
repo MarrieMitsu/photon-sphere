@@ -1,5 +1,7 @@
 # Photon Sphere
 
+![banner.png](/docs/assets/banner.png)
+
 SVG tools for generate geometric shapes path based on Circular Arcs
 
 ## Installation
