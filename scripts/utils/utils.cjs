@@ -8,8 +8,12 @@ const NAMESPACE_URI = {
 }
 
 // utils
-function camelToSnakeCase(str) {
+function camelToKebabCase(str) {
     return str.replace(/[A-Z]/g, m => "-" + m.toLowerCase());
+}
+
+function kebabToCamelCase(str) {
+    return str.replace(/-./g, m => m[1].toUpperCase());
 }
 
 /**
@@ -73,6 +77,7 @@ function createDOM(element = null, attributes = {}, options = {}) {
 
 module.exports = {
     NAMESPACE_URI,
-    camelToSnakeCase,
+    camelToKebabCase,
+    kebabToCamelCase,
     createDOM,
 }

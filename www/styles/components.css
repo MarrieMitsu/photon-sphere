@@ -1,0 +1,63 @@
+.container {
+    position: relative;
+    height: auto;
+}
+
+.nav {
+    position: relative;
+    padding: 16px;
+    display: flex;
+    justify-content: right;
+}
+
+.nav a {
+    margin: 0 16px;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 14px;
+    color: var(--neutral-10);
+}
+
+.footer {
+    position: relative;
+    padding: 16px;
+    display: flex;
+    justify-content: center;
+    color: var(--neutral-10);
+}
+
+.footer span {
+    font-size: 16px;
+}
+
+.link {
+    text-decoration: underline;
+    color: var(--blue-50);
+    font-size: inherit;
+}
+
+.custom-select {
+    width: 100%;
+}
+.custom-select label {
+    margin-bottom: 8px;
+    color: var(--neutral-10);
+    font-size: 16px;
+    display: inline-block;
+}
+.custom-select select {
+    width: 100%;
+    display: block;
+    padding: 8px;
+    font-size: 16px;
+}
+.custom-select select:focus {
+    outline: none;
+}
+
+/* Desktop */
+@media only screen and (min-width: 768px) {
+    .nav a {
+        font-size: 16px;
+    }
+}
