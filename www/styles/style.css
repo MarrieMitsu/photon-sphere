@@ -1,0 +1,31 @@
+/* Import */
+@import url('./components.css');
+@import url('./pages.css');
+
+/* Font family */
+@font-face {
+    font-family: 'Rubik';
+    src: url('../fonts/Rubik/Rubik-VariableFont_wght.ttf');
+}
+
+/* Default */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Rubik', 'Courier New', Courier, monospace;
+    box-sizing: border-box;
+}
+html, body {
+    height: 100%;
+}
+
+html {
+    --bg-color: radial-gradient(circle, rgba(35, 35, 75, 1), rgba(50, 34, 76, 1), rgba(26, 26, 46, 1));
+    --neutral-10: rgba(247, 247, 247, 1);
+    --neutral-100: rgba(26, 26, 46, 1);
+    --blue-50: rgba(67, 194, 255, 1);
+}
+
+body {
+    background-image: var(--bg-color);
+}

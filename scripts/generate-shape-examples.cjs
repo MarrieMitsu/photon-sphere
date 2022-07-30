@@ -46,7 +46,7 @@ function generateSampleShapes() {
                 }
             });
 
-            const svg = createDOM('svg', {
+            const svgEl = createDOM('svg', {
                 attributes: {
                     class: 'sample',
                     viewBox: '-20 -20 440 440',
@@ -62,14 +62,14 @@ function generateSampleShapes() {
                 namespaceURI: NAMESPACE_URI.SVG,
             });
 
-            for (let i = 0; i < orbit.length; i++) {
-                const el = createDOM('path', {
+            for (let j = 0; j < orbit.length; j++) {
+                const pathEl = createDOM('path', {
                     attributes: {
-                        d: orbit[i].path,
-                        fill: orbit[i].attributes.fill,
-                        stroke: orbit[i].attributes.stroke,
-                        'stroke-width': orbit[i].attributes.strokeWidth,
-                        'fill-opacity': orbit[i].attributes.fillOpacity,
+                        d: orbit[j].path,
+                        fill: orbit[j].attributes.fill,
+                        stroke: orbit[j].attributes.stroke,
+                        'stroke-width': orbit[j].attributes.strokeWidth,
+                        'fill-opacity': orbit[j].attributes.fillOpacity,
                         'shape-rendering': "geometricPrecision",
                         'stroke-linejoin': "round",
                         'vector-effect': "non-scaling-stroke",
@@ -78,9 +78,9 @@ function generateSampleShapes() {
                     namespaceURI: NAMESPACE_URI.SVG,
                 });
 
-                svg.appendChild(el);
+                svgEl.appendChild(pathEl);
             }
-            fs.writeFileSync(path.join(location, `${shapes[i]}.svg`), svg.outerHTML);
+            fs.writeFileSync(path.join(location, `${shapes[i]}.svg`), svgEl.outerHTML);
         }
     } catch (err) {
         console.log('[generateSampleShapes] : ', err);

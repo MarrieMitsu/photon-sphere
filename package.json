@@ -11,7 +11,8 @@
     "dist"
   ],
   "scripts": {
-    "build": "node ./scripts/build.cjs",
+    "build:lib": "node ./scripts/build.cjs",
+    "build:web": "node ./scripts/build-web.cjs",
     "test": "node ./test/test.js"
   },
   "repository": {

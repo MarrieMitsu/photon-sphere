@@ -18,7 +18,7 @@ const SphereBluePrint = [
         arcDasharray: [3, 1, 3, 1, 3],
         align: "center",
         attributes: {
-            fill: SPACE_PALLETE.MAROON,
+            fill: ['rgba(252, 219, 72, 1)', 'rgba(252, 172, 72, 1)'],
             stroke: 'none',
             strokeWidth: '0',
             fillOpacity: '1',
@@ -35,7 +35,7 @@ const SphereBluePrint = [
         arcDasharray: [3, 1, 3, 1, 3],
         align: "center",
         attributes: {
-            fill: SPACE_PALLETE.MAROON,
+            fill: ['rgba(252, 236, 72, 1)', 'rgba(221, 255, 255, 1)'],
             stroke: 'none',
             strokeWidth: '0',
             fillOpacity: '1',
@@ -52,7 +52,7 @@ const SphereBluePrint = [
         arcDasharray: [3, 1, 3, 1, 3],
         align: "center",
         attributes: {
-            fill: SPACE_PALLETE.MAROON,
+            fill: ['rgba(252, 219, 72, 1)', 'rgba(252, 172, 72, 1)'],
             stroke: 'none',
             strokeWidth: '0',
             fillOpacity: '1',
@@ -69,7 +69,7 @@ const SphereBluePrint = [
         arcDasharray: [3, 1, 3, 1, 3],
         align: "center",
         attributes: {
-            fill: SPACE_PALLETE.MAROON,
+            fill: ['rgba(252, 236, 72, 1)', 'rgba(221, 255, 255, 1)'],
             stroke: 'none',
             strokeWidth: '0',
             fillOpacity: '1',
@@ -86,7 +86,7 @@ const SphereBluePrint = [
         arcDasharray: [3, 1, 3, 1, 3],
         align: "center",
         attributes: {
-            fill: SPACE_PALLETE.MAROON,
+            fill: ['rgba(252, 219, 72, 1)', 'rgba(252, 172, 72, 1)'],
             stroke: 'none',
             strokeWidth: '0',
             fillOpacity: '1',
@@ -103,7 +103,7 @@ const SphereBluePrint = [
         arcDasharray: [3, 1, 3, 1, 3],
         align: "center",
         attributes: {
-            fill: SPACE_PALLETE.MAROON,
+            fill: ['rgba(252, 240, 72, 1)', 'rgba(255, 250, 176, 1)'],
             stroke: 'none',
             strokeWidth: '0',
             fillOpacity: '1',
@@ -122,7 +122,7 @@ const Z0PlaneBluePrint = [
         arcDasharray: [60, 12],
         align: "face-out",
         attributes: {
-            fill: SPACE_PALLETE.MAROON,
+            fill: ['rgba(200, 214, 255, 1)'],
             stroke: 'none',
             strokeWidth: '0',
             fillOpacity: '1',
@@ -138,7 +138,7 @@ const Z0PlaneBluePrint = [
         arcDasharray: [40, 32],
         align: "face-out",
         attributes: {
-            fill: SPACE_PALLETE.MAROON,
+            fill: ['rgba(150, 177, 255, 1)'],
             stroke: 'none',
             strokeWidth: '0',
             fillOpacity: '1',
@@ -154,7 +154,7 @@ const Z0PlaneBluePrint = [
         arcDasharray: [30, 60],
         align: "face-out",
         attributes: {
-            fill: SPACE_PALLETE.MAROON,
+            fill: ['rgba(99, 139, 255, 1)'],
             stroke: 'none',
             strokeWidth: '0',
             fillOpacity: '1',
@@ -170,7 +170,7 @@ const Z0PlaneBluePrint = [
         arcDasharray: [70, 20],
         align: "face-out",
         attributes: {
-            fill: SPACE_PALLETE.MAROON,
+            fill: ['rgba(56, 106, 255, 1)'],
             stroke: 'none',
             strokeWidth: '0',
             fillOpacity: '1',
@@ -186,7 +186,7 @@ const Z0PlaneBluePrint = [
         arcDasharray: [3, 1, 3, 1, 3],
         align: "center",
         attributes: {
-            fill: SPACE_PALLETE.MAROON,
+            fill: ['rgba(252, 236, 72, 1)', 'rgba(221, 255, 255, 1)'],
             stroke: 'none',
             strokeWidth: '0',
             fillOpacity: '1',
@@ -202,7 +202,7 @@ const Z0PlaneBluePrint = [
         arcDasharray: [3, 1, 3, 1, 3],
         align: "center",
         attributes: {
-            fill: SPACE_PALLETE.MAROON,
+            fill: ['rgba(233, 72, 252, 1)', 'rgba(255, 222, 181, 1)'],
             stroke: 'none',
             strokeWidth: '0',
             fillOpacity: '1',
@@ -218,7 +218,7 @@ const Z0PlaneBluePrint = [
         arcDasharray: [60, 15, 40, 15, 20],
         align: "face-in",
         attributes: {
-            fill: SPACE_PALLETE.MAROON,
+            fill: 'rgba(250, 72, 252, 1)',
             stroke: 'none',
             strokeWidth: '0',
             fillOpacity: '1',
@@ -234,7 +234,7 @@ const Z0PlaneBluePrint = [
         arcDasharray: [80, 10],
         align: "face-out",
         attributes: {
-            fill: SPACE_PALLETE.MAROON,
+            fill: 'rgba(252, 72, 186, 1)',
             stroke: 'none',
             strokeWidth: '0',
             fillOpacity: '1',
@@ -250,7 +250,7 @@ const Z0PlaneBluePrint = [
         arcDasharray: [80, 10],
         align: "face-out",
         attributes: {
-            fill: SPACE_PALLETE.MAROON,
+            fill: 'rgba(252, 72, 148, 1)',
             stroke: 'none',
             strokeWidth: '0',
             fillOpacity: '1',
@@ -266,7 +266,7 @@ const Z0PlaneBluePrint = [
         arcDasharray: [90, 10, 120, 20, 5, 20, 3, 1, 100],
         align: "face-out",
         attributes: {
-            fill: SPACE_PALLETE.MAROON,
+            fill: 'rgba(252, 72, 119, 1)',
             stroke: 'none',
             strokeWidth: '0',
             fillOpacity: '1',
@@ -282,7 +282,7 @@ const Z0PlaneBluePrint = [
         arcDasharray: [30],
         align: "face-out",
         attributes: {
-            fill: SPACE_PALLETE.MAROON,
+            fill: 'rgba(252, 72, 102, 1)',
             stroke: 'none',
             strokeWidth: '0',
             fillOpacity: '1',
@@ -298,7 +298,7 @@ const Z0PlaneBluePrint = [
         arcDasharray: [70, 20],
         align: "face-out",
         attributes: {
-            fill: SPACE_PALLETE.MAROON,
+            fill: 'rgba(252, 72, 72, 1)',
             stroke: 'none',
             strokeWidth: '0',
             fillOpacity: '1',
@@ -314,7 +314,7 @@ const Z0PlaneBluePrint = [
         arcDasharray: [70, 20, 20, 10, 30],
         align: "face-out",
         attributes: {
-            fill: SPACE_PALLETE.MAROON,
+            fill: 'rgba(252, 72, 72, 1)',
             stroke: 'none',
             strokeWidth: '0',
             fillOpacity: '1',
@@ -326,11 +326,11 @@ const Z0PlaneBluePrint = [
         },
         radius: 440,
         widths: [5],
-        shapes: ["edge"],
+        shapes: ["bottom-bevelled-antitail"],
         arcDasharray: [35, 40],
         align: "face-out",
         attributes: {
-            fill: SPACE_PALLETE.MAROON,
+            fill: 'rgba(252, 72, 182, 1)',
             stroke: 'none',
             strokeWidth: '0',
             fillOpacity: '1',
@@ -342,11 +342,11 @@ const Z0PlaneBluePrint = [
         },
         radius: 480,
         widths: [30],
-        shapes: ["double-edge"],
+        shapes: ["double-edge", "rounded"],
         arcDasharray: [70, 20],
         align: "face-out",
         attributes: {
-            fill: SPACE_PALLETE.MAROON,
+            fill: 'rgba(252, 72, 246, 1)',
             stroke: 'none',
             strokeWidth: '0',
             fillOpacity: '1',
@@ -362,7 +362,7 @@ const Z0PlaneBluePrint = [
         arcDasharray: [2],
         align: "face-out",
         attributes: {
-            fill: SPACE_PALLETE.MAROON,
+            fill: 'rgba(252, 240, 72, 1)',
             stroke: 'none',
             strokeWidth: '0',
             fillOpacity: '1',
@@ -374,11 +374,11 @@ const Z0PlaneBluePrint = [
         },
         radius: 540,
         widths: [30],
-        shapes: ["reverse-double-edge"],
+        shapes: ["reverse-double-edge", "rounded"],
         arcDasharray: [70, 20],
         align: "face-out",
         attributes: {
-            fill: SPACE_PALLETE.MAROON,
+            fill: 'rgba(106, 72, 252, 1)',
             stroke: 'none',
             strokeWidth: '0',
             fillOpacity: '1',
@@ -394,7 +394,7 @@ const Z0PlaneBluePrint = [
         arcDasharray: [40, 5],
         align: "face-out",
         attributes: {
-            fill: SPACE_PALLETE.MAROON,
+            fill: 'rgba(72, 93, 252, 1)',
             stroke: 'none',
             strokeWidth: '0',
             fillOpacity: '1',
@@ -410,7 +410,7 @@ const Z0PlaneBluePrint = [
         arcDasharray: [5, 45],
         align: "face-out",
         attributes: {
-            fill: SPACE_PALLETE.MAROON,
+            fill: 'rgba(72, 106, 252, 1)',
             stroke: 'none',
             strokeWidth: '0',
             fillOpacity: '1',
@@ -426,7 +426,7 @@ const Z0PlaneBluePrint = [
         arcDasharray: [5, 3],
         align: "face-out",
         attributes: {
-            fill: SPACE_PALLETE.MAROON,
+            fill: 'rgba(59, 92, 235, 1)',
             stroke: 'none',
             strokeWidth: '0',
             fillOpacity: '1',
