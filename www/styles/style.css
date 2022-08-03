@@ -20,6 +20,9 @@ html, body {
 }
 
 html {
+    --bg-gradient-1: radial-gradient(circle, rgba(35, 35, 75, 1), rgba(50, 34, 76, 1), rgba(26, 26, 46, 1));
+    --bg-gradient-2: radial-gradient(circle, rgba(26, 26, 46, 1), rgba(35, 35, 75, 1), rgba(50, 34, 76, 1));
+    --bg-gradient-3: radial-gradient(circle, rgba(50, 34, 76, 1), rgba(26, 26, 46, 1), rgba(35, 35, 75, 1));
     --bg-color: radial-gradient(circle, rgba(35, 35, 75, 1), rgba(50, 34, 76, 1), rgba(26, 26, 46, 1));
     --neutral-10: rgba(247, 247, 247, 1);
     --neutral-100: rgba(26, 26, 46, 1);
@@ -27,5 +30,5 @@ html {
 }
 
 body {
-    background-image: var(--bg-color);
+    background-image: var(--bg-gradient-1);
 }
