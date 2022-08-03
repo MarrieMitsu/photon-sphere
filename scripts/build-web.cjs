@@ -130,7 +130,7 @@ function generatePhotonSphereAnimation() {
         console.error(error);
     }
 }
-// generatePhotonSphereAnimation();
+generatePhotonSphereAnimation();
 
 // generateDemoShape
 function generateDemoShape() {
@@ -235,4 +235,4 @@ function generateDemoShape() {
         console.error(error);
     }
 }
-generateDemoShape();
+// generateDemoShape();

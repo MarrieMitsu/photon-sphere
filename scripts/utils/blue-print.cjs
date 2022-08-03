@@ -402,7 +402,7 @@ const Z0PlaneBluePrint = [
     },
     {
         svgAttributes: {
-            animation: 'z0-plane 15s forwards linear infinite'
+            animation: 'z0-plane 20s forwards linear infinite'
         },
         radius: 600,
         widths: [20],
@@ -418,7 +418,7 @@ const Z0PlaneBluePrint = [
     },
     {
         svgAttributes: {
-            animation: 'z0-plane 70s forwards linear infinite'
+            animation: 'z0-plane 200s forwards linear infinite'
         },
         radius: 650,
         widths: [3],

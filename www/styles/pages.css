@@ -34,6 +34,33 @@
     background-color: rgba(19, 20, 37, .6);
 }
 
+.stars-container {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+}
+
+.stars {
+    background-color: transparent;
+    animation: stars 500s linear infinite;
+}
+
+@keyframes stars {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);;
+    }
+}
+
 .bg-ani {
     position: absolute;
     display: flex;
@@ -54,7 +81,7 @@
     height: 2000px;
     /* background-color: red; */
     transform: rotate3d(1, 0, 0, 0deg);
-    animation: space 15s linear infinite;
+    animation: space 25s linear infinite;
     perspective: 700px;
 }
 
