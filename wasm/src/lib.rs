@@ -1,3 +1,7 @@
+mod arc_shape;
+pub mod photon_sphere;
+mod util;
+
 #[cfg(test)]
 mod tests {
     #[test]
