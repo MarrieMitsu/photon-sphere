@@ -2,7 +2,7 @@
 
 ![banner.png](/docs/assets/banner.png)
 
-SVG tool for generate geometric shapes path based on Circular Arcs
+SVG tool to generate geometric shapes path based on Circular Arcs
 
 ## Installation
 

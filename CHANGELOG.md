@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 - WASM support
 
+## [2.0.1] - 2024-04-03
+### Changed
+- Refactor module
+- Fix documentation
+
 ## [2.0.0] - 2022-07-24
 ### Changed
 - Change API return value

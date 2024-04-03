@@ -1,4 +1,4 @@
-const PhotonSphere = require('../dist/photon-sphere');
+const PhotonSphere = require('../dist/photon-sphere.cjs');
 
 var test = new PhotonSphere({
     morphingShape: true,
