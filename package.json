@@ -1,6 +1,6 @@
 {
   "name": "photon-sphere",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "SVG tools to generate geometric shapes path based on circular arcs",
   "type": "module",
   "main": "./dist/photon-sphere.es.js",
