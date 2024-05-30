@@ -1,6 +1,6 @@
 import { ANGLE, ARCSHAPE, ALT_ANGLE } from "./utils/constants";
 import { fixedDegree, largestNumberInArray, calcMargin } from "./utils/utils";
-import { 
+import {
     drawUniformPath,
     drawRoundedPath,
     drawEdgePath,
@@ -13,15 +13,15 @@ import {
 
 /**
  * PhotonSphere API.
- * 
+ *
  * @param {{
- * radius: number, 
- * widths: number | number[], 
+ * radius: number,
+ * widths: number | number[],
  * shapes: string | string[],
- * offset: number, 
- * arcDasharray: number[], 
- * align: string, 
- * morphingShape: boolean, 
+ * offset: number,
+ * arcDasharray: number[],
+ * align: string,
+ * morphingShape: boolean,
  * attributes: Object}} options
  * @returns {Object[]} Array of Object
  */
@@ -133,7 +133,7 @@ export function PhotonSphere({
                         path = drawUniformPath(radius, width, margin, morphingShape, threshold, threshold + degree);
                         break;
                 }
-                
+
                 if (typeof attributes === 'object') {
                     for (const key in attributes) {
                         const attr = attributes[key];
@@ -203,7 +203,7 @@ export function PhotonSphere({
         if (typeof attributes === 'object') {
             for (const key in attributes) {
                 const attr = attributes[key];
-                
+
                 if (Array.isArray(attr) && attr.length > 0) {
                     attrs[key] = attr[0];
                 } else {
@@ -211,10 +211,10 @@ export function PhotonSphere({
                 }
             }
         }
-        
+
         generatedObj.path = path;
         generatedObj.attributes = attrs;
-        
+
         arcs.push(generatedObj);
     }
 
