@@ -2,6 +2,9 @@ pub mod constant;
 pub mod formula;
 pub mod path_command;
 
+use js_sys::{Array, Object};
+use wasm_bindgen::{JsCast, JsValue};
+
 use self::{constant::*, formula::LocusPoint};
 use std::f64::consts::PI;
 
@@ -27,7 +30,7 @@ pub fn fixed_decimal(number: f64) -> f64 {
     f64::round((number + f64::EPSILON) * 10_f64.powf(length as f64)) / 10_f64.powf(length as f64)
 }
 
-pub fn calc_margin(width: f64, largest_width: f64, align: Alignment) -> f64 {
+pub fn calc_margin(width: f64, largest_width: f64, align: &Alignment) -> f64 {
     let margin = (largest_width / 2.0) - (width / 2.0);
 
     match align {
@@ -118,4 +121,28 @@ pub fn draw_arcs(
     }
 
     A
+}
+
+pub fn js_object_iter(value: &JsValue) -> Result<js_sys::IntoIter, JsValue> {
+    match js_sys::try_iter(value)? {
+        Some(e) => Ok(e),
+        None => {
+            if value.is_object() {
+                let obj = Object::entries(value.unchecked_ref());
+                let iter = js_sys::try_iter(&obj)?
+                    .ok_or_else(|| JsValue::from_str("failed"))?;
+                Ok(iter)
+            } else {
+                Err(JsValue::from_str("failed"))
+            }
+        }
+    }
+}
+
+pub fn js_array(value: &JsValue) -> Option<&Array> {
+    if value.is_array() {
+        value.dyn_ref::<Array>()
+    } else {
+        None
+    }
 }

@@ -1,3 +1,5 @@
+use js_sys::{Array, Object};
+use serde::Serialize;
 use wasm_bindgen::prelude::*;
 
 use crate::{
@@ -9,36 +11,36 @@ use crate::{
     util::{
         calc_margin,
         constant::{Alignment, ArcShape, ALT_ANGLE, ANGLE},
-        fixed_degree, largest_number_in_vec,
+        fixed_degree, js_array, js_object_iter, largest_number_in_vec,
     },
+    Shape, Width,
 };
 
-pub enum Widths<'a> {
-    Single(f64),
-    Batch(&'a [f64]),
-}
+#[derive(Debug, Serialize)]
+pub struct ArcPath {
+    pub path: String,
 
-pub enum Shapes<'a> {
-    Single(ArcShape),
-    Batch(&'a [ArcShape]),
+    #[serde(with = "serde_wasm_bindgen::preserve")]
+    pub attributes: Object,
 }
 
 /// PhotonSphere
-pub struct PhotonSphere;
+pub struct PhotonSphere {
+    pub arc_path: Vec<ArcPath>,
+}
 
-#[wasm_bindgen]
 impl PhotonSphere {
     pub fn new<'a>(
         radius: f64,
-        widths: Widths<'a>,
-        shapes: Shapes<'a>,
-        offset: Option<f64>,
+        widths: Width,
+        shapes: Shape,
+        offset: f64,
         arc_dasharray: &'a [f64],
-        align: Alignment,
+        align: &Alignment,
         morphing_shape: bool,
-        callback: &js_sys::Function,
-    ) {
-        let mut arcs: Vec<ArcPath> = Vec::new();
+        attributes: &JsValue,
+    ) -> Self {
+        let mut arc_path: Vec<ArcPath> = Vec::new();
         let mut threshold = 0.0;
         let mut i = 0;
         let mut j = 0;
@@ -46,12 +48,12 @@ impl PhotonSphere {
         let mut width: f64;
         let largest_width: f64;
         match widths {
-            Widths::Batch(val) if val.len() > 0 => {
+            Width::Collection(ref val) if val.len() > 0 => {
                 width = val[0];
-                largest_width = largest_number_in_vec(val);
+                largest_width = largest_number_in_vec(&val);
             }
-            Widths::Batch(_) => return arcs,
-            Widths::Single(val) => {
+            Width::Collection(_) => return PhotonSphere { arc_path },
+            Width::Single(val) => {
                 width = val;
                 largest_width = val;
             }
@@ -59,39 +61,37 @@ impl PhotonSphere {
 
         let mut shape: ArcShape;
         match shapes {
-            Shapes::Batch(val) if val.len() > 0 => {
+            Shape::Collection(ref val) if val.len() > 0 => {
                 shape = val[0];
             }
-            Shapes::Batch(_) => return arcs,
-            Shapes::Single(val) => {
+            Shape::Collection(_) => return PhotonSphere { arc_path },
+            Shape::Single(val) => {
                 shape = val;
             }
         };
 
-        threshold += match offset {
-            Some(val) => val,
-            _ => 0.0,
-        };
+        threshold += offset;
 
         if arc_dasharray.len() > 0 {
             // prevent infinite loop causing by zero as initial value
             if fixed_degree(arc_dasharray[0]) == 0.0 {
-                return arcs;
+                return PhotonSphere { arc_path };
             }
 
             while threshold < ANGLE {
                 let is_odd = (i + 1) % 2 != 0;
+                let attrs = Object::new();
 
                 let mut degree = fixed_degree(arc_dasharray[i % arc_dasharray.len()]);
                 if degree > (ANGLE - threshold) {
                     degree = ANGLE - threshold;
                 }
 
-                if let Widths::Batch(val) = widths {
+                if let Width::Collection(ref val) = widths {
                     width = val[j % val.len()];
                 }
 
-                if let Shapes::Batch(val) = shapes {
+                if let Shape::Collection(ref val) = shapes {
                     shape = val[j % val.len()];
                 }
 
@@ -178,14 +178,30 @@ impl PhotonSphere {
                         ),
                     };
 
-                    // js closure
-                    callback.call3(
-                        &JsValue::NULL, 
-                        &JsValue::from_str(&path), 
-                        &JsValue::TRUE, 
-                        &JsValue::from_f64(j),
-                    );
+                    if let Some(attributes) = js_object_iter(attributes).ok() {
+                        for x in attributes {
+                            let x = x.unwrap();
 
+                            let (key, value) = {
+                                let pair = x.unchecked_into::<Array>();
+                                (pair.get(0), pair.get(1))
+                            };
+
+                            if let Some(e) = js_array(&value) {
+                                if e.length() > 0 {
+                                    js_sys::Reflect::set(&attrs, &key, &e.get((j as u32) % e.length()))
+                                        .unwrap();
+                                }
+                            } else {
+                                js_sys::Reflect::set(&attrs, &key, &value).unwrap();
+                            }
+                        }
+                    }
+
+                    arc_path.push(ArcPath {
+                        path,
+                        attributes: attrs,
+                    });
                     j += 1;
                 }
 
@@ -193,6 +209,8 @@ impl PhotonSphere {
                 i += 1;
             }
         } else {
+            let attrs = Object::new();
+
             let path = match shape {
                 ArcShape::Uniform => {
                     draw_uniform_path(radius, width, 0.0, morphing_shape, 0.0, ALT_ANGLE)
@@ -232,14 +250,31 @@ impl PhotonSphere {
                 }
             };
 
-            // js closure
-            callback.call3(
-                &JsValue::NULL, 
-                &JsValue::from_str(&path), 
-                &JsValue::FALSE, 
-                &JsValue::NULL,
-            );
+            if let Some(attributes) = js_object_iter(attributes).ok() {
+                for x in attributes {
+                    let x = x.unwrap();
+
+                    let (key, value) = {
+                        let pair = x.unchecked_into::<Array>();
+                        (pair.get(0), pair.get(1))
+                    };
+
+                    if let Some(e) = js_array(&value) {
+                        if e.length() > 0 {
+                            js_sys::Reflect::set(&attrs, &key, &e.get(0)).unwrap();
+                        }
+                    } else {
+                        js_sys::Reflect::set(&attrs, &key, &value).unwrap();
+                    }
+                }
+            }
+
+            arc_path.push(ArcPath {
+                path,
+                attributes: attrs,
+            });
         }
 
+        PhotonSphere { arc_path }
     }
 }
