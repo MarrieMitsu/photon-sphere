@@ -20,7 +20,8 @@
     "clean:win": "node -e \"if (process.platform === 'win32') process.exit(1)\" || , if exist dist rmdir /Q /S dist",
     "clean:nix": "node -e \"if (process.platform !== 'win32') process.exit(1) \" || rm -rf dist",
     "clean": "npm run clean:win && npm run clean:nix",
-    "build:lib": "node ./scripts/build.cjs",
+    "build:wasm": "wasm-pack build --release --target web ./wasm",
+    "build:lib": "npm run build:wasm && node ./scripts/build.cjs",
     "build:web": "node ./scripts/build-web.cjs",
     "test": "node ./test/test.cjs"
   },
@@ -44,6 +45,7 @@
   "devDependencies": {
     "@rollup/plugin-buble": "^1.0.3",
     "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-wasm": "^6.2.2",
     "jsdom": "^19.0.0",
     "rollup": "^4.13.2"
   }

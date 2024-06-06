@@ -11,20 +11,6 @@ import {
     drawMeteorPath,
 } from "./arc-shapes/index";
 
-/**
- * PhotonSphere API.
- *
- * @param {{
- * radius: number,
- * widths: number | number[],
- * shapes: string | string[],
- * offset: number,
- * arcDasharray: number[],
- * align: string,
- * morphingShape: boolean,
- * attributes: Object}} options
- * @returns {Object[]} Array of Object
- */
 export function PhotonSphere({
     radius,
     widths,

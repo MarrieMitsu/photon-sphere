@@ -19,7 +19,7 @@ or manual download, you can found the zip file in the [releases](https://github.
 ### Quick Start
 
 ```javascript
-import PhotonSphere from 'photon-sphere.es.js';
+import { PhotonSphere } from 'photon-sphere.es.js';
 
 const paths = PhotonSphere({
     radius: 300,
@@ -42,16 +42,16 @@ Output :
 ### Full Usage
 
 ```javascript
-import PhotonSphere from 'photon-sphere.es.js';
+import { PhotonSphere } from 'photon-sphere.es.js';
 
 const paths = PhotonSphere({
-    morphingShape: true,
     radius: 300,
     widths: [20],
-    offset: 10,
     shapes: ['uniform'],
+    offset: 10,
     arcDasharray: [90, 0],
     align: 'face-out',
+    morphingShape: true,
     attributes: {
         fills: ['red', 'blue']
     }
@@ -79,6 +79,38 @@ Output :
     attributes: { fills: 'blue' }
   }
 ]
+```
+
+### Wasm Usage
+
+The wasm module is asynchronous, you need to instantiate the module first before using it
+
+```javascript
+import { PhotonSphereWasm } from 'photon-sphere.es.js';
+
+async function main() {
+    const instance = await PhotonSphereWasm();
+
+    const one = instance({
+        radius: 300,
+        widths: 20,
+        shapes: 'uniform',
+    });
+
+    const two = instance({
+        radius: 300,
+        widths: [20],
+        shapes: ['uniform'],
+        offset: 10,
+        arcDasharray: [90, 0],
+        align: 'face-out',
+        morphingShape: true,
+        attributes: {
+            fills: ['red', 'blue']
+        }
+    });
+}
+main();
 ```
 
 ## Shapes list
@@ -166,7 +198,7 @@ Output :
 
 ## Best Practices
 
-Consider to use this library as a tool for generating paths to be used in static code, rather than directly on the browser runtime process. If you insist, try to using it with `Web Worker` as performance advice, especially while doing mass processing.
+Consider to use this library as a tool for generating paths to be used in static code, rather than directly on the browser runtime process. If you insist, try to using it with `Web Worker` as performance advice, especially while doing mass processing. You may also consider to use the Wasm module of it.
 
 ## Draw Pattern Visualization
 

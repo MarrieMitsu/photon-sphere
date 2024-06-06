@@ -4,9 +4,9 @@
 
 export as namespace PhotonSphere;
 
-declare function PhotonSphere(args: PhotonSphereProps): PhotonSphereResult[];
+export declare function PhotonSphere(args: PhotonSphereProps): PhotonSphereResult[];
 
-export default PhotonSphere;
+export declare function PhotonSphereWasm(): Promise<(args: PhotonSphereProps) => PhotonSphereResult[]>;
 
 export declare type ArcShape = 
     | "uniform"
