@@ -1,0 +1,14 @@
+/* Generator */
+.generator-content {
+    min-height: 100%;
+    padding: 0 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.generator-content span {
+    text-align: center;
+    font-size: 18px;
+    color: var(--neutral-10);
+}

@@ -1,4 +1,4 @@
-const PhotonSphere = require('../dist/photon-sphere');
+const { PhotonSphere } = require('../dist/photon-sphere');
 const path = require('path');
 const fs = require('fs');
 const { NAMESPACE_URI, createDOM } = require('./utils/utils.cjs');

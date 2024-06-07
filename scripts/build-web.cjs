@@ -1,4 +1,4 @@
-const PhotonSphere = require('../dist/photon-sphere');
+const { PhotonSphere } = require('../dist/photon-sphere.cjs');
 const { Z0PlaneBluePrint, SphereBluePrint } = require('./utils/blue-print.cjs');
 const { createDOM, NAMESPACE_URI, kebabToCamelCase } = require('./utils/utils.cjs');
 const { JSDOM } = require('jsdom');
@@ -130,7 +130,7 @@ function generatePhotonSphereAnimation() {
         console.error(error);
     }
 }
-generatePhotonSphereAnimation();
+//generatePhotonSphereAnimation();
 
 // generateDemoShape
 function generateDemoShape() {
@@ -158,7 +158,7 @@ function generateDemoShape() {
 
         for (let i = 0; i < shapes.length; i++) {
             const orbit = PhotonSphere({
-                // morphingShape: true,
+                morphingShape: true,
                 radius: 250,
                 widths: 30,
                 offset: 30,
@@ -166,8 +166,26 @@ function generateDemoShape() {
                 arcDasharray: [50, 10, 40, 10, 30, 10, 20, 20],
                 align: "face-out",
                 attributes: {
-                    fill: ["tranparent", "tranparent", "tranparent", "tranparent", "rgba(255, 255, 255, 1)", "rgba(255, 255, 255, 1)", "rgba(255, 255, 255, 1)", "rgba(255, 255, 255, 1)",],
-                    stroke: ["rgba(255, 255, 255, 1)", "rgba(255, 255, 255, 1)", "rgba(255, 255, 255, 1)", "rgba(255, 255, 255, 1)", "none", "none", "none", "none"],
+                    fill: [
+                        "tranparent",
+                        "tranparent",
+                        "tranparent",
+                        "tranparent",
+                        "rgba(255, 255, 255, 1)",
+                        "rgba(255, 255, 255, 1)",
+                        "rgba(255, 255, 255, 1)",
+                        "rgba(255, 255, 255, 1)",
+                    ],
+                    stroke: [
+                        "rgba(255, 255, 255, 1)",
+                        "rgba(255, 255, 255, 1)",
+                        "rgba(255, 255, 255, 1)",
+                        "rgba(255, 255, 255, 1)",
+                        "none",
+                        "none",
+                        "none",
+                        "none",
+                    ],
                     strokeWidth: ["1", "1", "1", "1", "0", "0", "0", "0",],
                     fillOpacity: ["0", "0", "0", "0", "1", "1", "1", "1",],
                 }
@@ -210,7 +228,7 @@ function generateDemoShape() {
         }
 
 
-        Object.keys(data).forEach(function(key) {
+        Object.keys(data).forEach(function (key) {
             for (let i = 0; i < data[key].length; i++) {
                 svgEl.childNodes[i].dataset[kebabToCamelCase(key)] = data[key][i].path;
             }
@@ -235,4 +253,4 @@ function generateDemoShape() {
         console.error(error);
     }
 }
-// generateDemoShape();
+generateDemoShape();

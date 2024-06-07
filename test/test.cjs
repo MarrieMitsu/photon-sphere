@@ -1,30 +1,145 @@
-const PhotonSphere = require('../dist/photon-sphere.cjs');
+const assert = require('node:assert');
+const { PhotonSphere, PhotonSphereWasm } = require('../dist/photon-sphere.cjs');
 
-var test = new PhotonSphere({
-    morphingShape: true,
-    radius: 300,
-    widths: [20],
-    shapes: ['uniform'],
-    arcDasharray: [90, 0],
-    align: 'face-out',
-    attributes: {
-        fills: ['red', 'blue']
+function test(desc, fn) {
+    try {
+        fn();
+        console.log('\x1b[32m%s\x1b[0m', `\u2714 ${desc}`);
+    } catch (err) {
+        console.log('\n');
+        console.log('\x1b[31m%s\x1b[0m', `\u2718 ${desc}`);
+        console.error(err);
     }
+}
+
+async function test_async(desc, fn) {
+    try {
+        await fn();
+        console.log('\x1b[32m%s\x1b[0m', `\u2714 ${desc}`);
+    } catch (err) {
+        console.log('\n');
+        console.log('\x1b[31m%s\x1b[0m', `\u2718 ${desc}`);
+        console.error(err);
+    }
+}
+
+// Minimal Input Test
+test('Minimal Input Test', () => {
+    const output = [
+        {
+            path: 'M 600,300 A 300,300 0 1 0 600,300.0001  L 580,300.0001 A 280,280 0 1 1 580,300  Z',
+            attributes: {}
+        }
+    ];
+
+    const paths = PhotonSphere({
+        radius: 300,
+        widths: 20,
+        shapes: 'uniform',
+    });
+
+    assert.deepEqual(paths, output);
 });
 
-var offsetTest = new PhotonSphere({
-    morphingShape: true,
-    radius: 300,
-    widths: [20],
-    offset: 180,
-    shapes: ['uniform'],
-    arcDasharray: [90, 0],
-    align: 'face-out',
-    attributes: {
-        fills: ['red', 'blue']
-    }
+// Full Input Test
+test('Full Input Test', () => {
+    const output = [
+        {
+            path: 'M 595.4423,247.9055 A 300,300 0 0 0 247.9055,4.5577 A 300,300 0 0 0 247.9055,4.5577 A 300,300 0 0 0 247.9055,4.5577 A 300,300 0 0 0 247.9055,4.5577  C 247.9055,4.5577 249.642,14.4058 249.642,14.4058 C 249.642,14.4058 251.3785,24.2538 251.3785,24.2538 A 280,280 0 0 1 575.7462,251.3785 A 280,280 0 0 1 575.7462,251.3785 A 280,280 0 0 1 575.7462,251.3785 A 280,280 0 0 1 575.7462,251.3785  C 575.7462,251.3785 585.5942,249.642 585.5942,249.642 C 585.5942,249.642 595.4423,247.9055 595.4423,247.9055',
+            attributes: { fills: 'red' }
+        },
+        {
+            path: 'M 247.9055,4.5577 A 300,300 0 0 0 4.5577,352.0945 A 300,300 0 0 0 4.5577,352.0945 A 300,300 0 0 0 4.5577,352.0945 A 300,300 0 0 0 4.5577,352.0945  C 4.5577,352.0945 14.4058,350.358 14.4058,350.358 C 14.4058,350.358 24.2538,348.6215 24.2538,348.6215 A 280,280 0 0 1 251.3785,24.2538 A 280,280 0 0 1 251.3785,24.2538 A 280,280 0 0 1 251.3785,24.2538 A 280,280 0 0 1 251.3785,24.2538  C 251.3785,24.2538 249.642,14.4058 249.642,14.4058 C 249.642,14.4058 247.9055,4.5577 247.9055,4.5577',
+            attributes: { fills: 'blue' }
+        },
+        {
+            path: 'M 4.5577,352.0945 A 300,300 0 0 0 352.0945,595.4423 A 300,300 0 0 0 352.0945,595.4423 A 300,300 0 0 0 352.0945,595.4423 A 300,300 0 0 0 352.0945,595.4423  C 352.0945,595.4423 350.358,585.5942 350.358,585.5942 C 350.358,585.5942 348.6215,575.7462 348.6215,575.7462 A 280,280 0 0 1 24.2538,348.6215 A 280,280 0 0 1 24.2538,348.6215 A 280,280 0 0 1 24.2538,348.6215 A 280,280 0 0 1 24.2538,348.6215  C 24.2538,348.6215 14.4058,350.358 14.4058,350.358 C 14.4058,350.358 4.5577,352.0945 4.5577,352.0945',
+            attributes: { fills: 'red' }
+        },
+        {
+            path: 'M 352.0945,595.4423 A 300,300 0 0 0 600,300 A 300,300 0 0 0 600,300 A 300,300 0 0 0 600,300 A 300,300 0 0 0 600,300  C 600,300 590,300 590,300 C 590,300 580,300 580,300 A 280,280 0 0 1 348.6215,575.7462 A 280,280 0 0 1 348.6215,575.7462 A 280,280 0 0 1 348.6215,575.7462 A 280,280 0 0 1 348.6215,575.7462  C 348.6215,575.7462 350.358,585.5942 350.358,585.5942 C 350.358,585.5942 352.0945,595.4423 352.0945,595.4423',
+            attributes: { fills: 'blue' }
+        }
+    ];
+
+    const paths = PhotonSphere({
+        radius: 300,
+        widths: [20],
+        shapes: ['uniform'],
+        offset: 10,
+        arcDasharray: [90, 0],
+        align: 'face-out',
+        morphingShape: true,
+        attributes: {
+            fills: ['red', 'blue']
+        }
+    });
+
+    assert.deepEqual(paths, output);
 });
 
-// do simple output test :)
-console.log(test);
-console.log(offsetTest);
+// Wasm Instantiate Test
+test_async('Wasm Instantiate Test', async () => {
+    const instance = await PhotonSphereWasm();
+
+    assert.deepEqual(typeof instance == 'function', true);
+});
+
+// Minimal Input Wasm Test
+test_async('Minimal Input Wasm Test', async () => {
+    const output = [
+        {
+            path: 'M 600,300 A 300,300 0 1 0 600,300.0001  L 580,300.0001 A 280,280 0 1 1 580,300  Z',
+            attributes: {}
+        }
+    ];
+
+    const instance = await PhotonSphereWasm();
+
+    const paths = instance({
+        radius: 300,
+        widths: 20,
+        shapes: 'uniform',
+    });
+
+    assert.deepEqual(paths, output);
+});
+
+// Full Input Wasm Test
+test_async('Full Input Wasm Test', async () => {
+    const output = [
+        {
+            path: 'M 595.4423,247.9055 A 300,300 0 0 0 247.9055,4.5577 A 300,300 0 0 0 247.9055,4.5577 A 300,300 0 0 0 247.9055,4.5577 A 300,300 0 0 0 247.9055,4.5577  C 247.9055,4.5577 249.642,14.4058 249.642,14.4058 C 249.642,14.4058 251.3785,24.2538 251.3785,24.2538 A 280,280 0 0 1 575.7462,251.3785 A 280,280 0 0 1 575.7462,251.3785 A 280,280 0 0 1 575.7462,251.3785 A 280,280 0 0 1 575.7462,251.3785  C 575.7462,251.3785 585.5942,249.642 585.5942,249.642 C 585.5942,249.642 595.4423,247.9055 595.4423,247.9055',
+            attributes: { fills: 'red' }
+        },
+        {
+            path: 'M 247.9055,4.5577 A 300,300 0 0 0 4.5577,352.0945 A 300,300 0 0 0 4.5577,352.0945 A 300,300 0 0 0 4.5577,352.0945 A 300,300 0 0 0 4.5577,352.0945  C 4.5577,352.0945 14.4058,350.358 14.4058,350.358 C 14.4058,350.358 24.2538,348.6215 24.2538,348.6215 A 280,280 0 0 1 251.3785,24.2538 A 280,280 0 0 1 251.3785,24.2538 A 280,280 0 0 1 251.3785,24.2538 A 280,280 0 0 1 251.3785,24.2538  C 251.3785,24.2538 249.642,14.4058 249.642,14.4058 C 249.642,14.4058 247.9055,4.5577 247.9055,4.5577',
+            attributes: { fills: 'blue' }
+        },
+        {
+            path: 'M 4.5577,352.0945 A 300,300 0 0 0 352.0945,595.4423 A 300,300 0 0 0 352.0945,595.4423 A 300,300 0 0 0 352.0945,595.4423 A 300,300 0 0 0 352.0945,595.4423  C 352.0945,595.4423 350.358,585.5942 350.358,585.5942 C 350.358,585.5942 348.6215,575.7462 348.6215,575.7462 A 280,280 0 0 1 24.2538,348.6215 A 280,280 0 0 1 24.2538,348.6215 A 280,280 0 0 1 24.2538,348.6215 A 280,280 0 0 1 24.2538,348.6215  C 24.2538,348.6215 14.4058,350.358 14.4058,350.358 C 14.4058,350.358 4.5577,352.0945 4.5577,352.0945',
+            attributes: { fills: 'red' }
+        },
+        {
+            path: 'M 352.0945,595.4423 A 300,300 0 0 0 600,300 A 300,300 0 0 0 600,300 A 300,300 0 0 0 600,300 A 300,300 0 0 0 600,300  C 600,300 590,300 590,300 C 590,300 580,300 580,300 A 280,280 0 0 1 348.6215,575.7462 A 280,280 0 0 1 348.6215,575.7462 A 280,280 0 0 1 348.6215,575.7462 A 280,280 0 0 1 348.6215,575.7462  C 348.6215,575.7462 350.358,585.5942 350.358,585.5942 C 350.358,585.5942 352.0945,595.4423 352.0945,595.4423',
+            attributes: { fills: 'blue' }
+        }
+    ];
+
+    const instance = await PhotonSphereWasm();
+
+    const paths = instance({
+        radius: 300,
+        widths: [20],
+        shapes: ['uniform'],
+        offset: 10,
+        arcDasharray: [90, 0],
+        align: 'face-out',
+        morphingShape: true,
+        attributes: {
+            fills: ['red', 'blue']
+        }
+    });
+
+    assert.deepEqual(paths, output);
+});

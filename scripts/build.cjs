@@ -3,6 +3,7 @@ const p = require('node:path');
 const pkg = require('../package.json');
 const { rollup } = require("rollup");
 const { default: terser } = require('@rollup/plugin-terser');
+const { default: wasm } = require('@rollup/plugin-wasm')
 
 const now = new Date();
 
@@ -16,6 +17,7 @@ const banner = `/**
 
 const plugins = [
     terser(),
+    wasm(),
 ];
 
 function append_banner(path) {
