@@ -55,6 +55,29 @@
     outline: none;
 }
 
+/* Checkbox */
+.checkbox {
+    width: 100%;
+}
+
+.checkbox label {
+    margin-bottom: 8px;
+    color: var(--neutral-10);
+    font-size: 16px;
+    display: inline-block;
+}
+
+.checkbox input {
+    /* width: 100%; */
+    /* display: block; */
+    padding: 8px;
+    font-size: 16px;
+}
+
+.checkbox input:focus {
+    outline: none;
+}
+
 /* Desktop */
 @media only screen and (min-width: 768px) {
     .nav a {
