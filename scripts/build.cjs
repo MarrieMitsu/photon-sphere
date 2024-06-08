@@ -3,7 +3,7 @@ const p = require('node:path');
 const pkg = require('../package.json');
 const { rollup } = require("rollup");
 const { default: terser } = require('@rollup/plugin-terser');
-const { default: wasm } = require('@rollup/plugin-wasm')
+const { default: wasm } = require('@rollup/plugin-wasm');
 
 const now = new Date();
 
@@ -91,7 +91,7 @@ async function build_lib() {
     }
 }
 
-async function main () {
+async function main() {
     await build_lib();
 };
 
